@@ -10,9 +10,9 @@ public class MarsRoverImpl implements MarsRover{
     }
 
 	@Override
-	public Position.move(String command) {
+	public Position move(String command) {
         if (command.isEmpty()) {
-            return Position.of(x: 0,y: 0, Direction.NORTH)
+            return Position.of(0, 0, Direction.NORTH);
         }
         char singleCommand = command.charAt(0);
         if ('f' ==  singleCommand) {
@@ -25,7 +25,7 @@ public class MarsRoverImpl implements MarsRover{
             position = position.right();
         }
 
-
+        return position;
     }
-    return position;
+
 }
