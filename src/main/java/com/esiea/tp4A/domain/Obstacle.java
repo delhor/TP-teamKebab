@@ -1,25 +1,33 @@
 package com.esiea.tp4A.domain;
 
+
+import java.util.Set;
+
 public class Obstacle {
-    private int x;
-    public int getX() {
-        return x;
-    }
-    public void setX(final int value) {
-        x = value;
-    }
+        public Set<Position> obstacles;
+        public final int positionMaxX;
+        public final int positionMaxY;
+        public final int positionMinX;
+        public final int positionMinY;
 
-    private int y;
-    public int getY() {
-        return y;
-    }
-    public void setY(final int value) {
-        y = value;
-    }
+        public Obstacle(int obstaclesNumber) {
+            this.positionMaxX = 50;
+            this.positionMaxY = 50;
+            this.positionMinX = -49;
+            this.positionMinY = -49;
 
-    public Obstacle(final int xValue, final int yValue) {
-        setX(xValue);
-        setY(yValue);
-    }
+        }
 
-}
+        public boolean obstacleDetection(int x, int y) {
+            return obstacles.stream()
+                .anyMatch(p -> p.getX() == x && p.getY() == y);
+        }
+
+        public void obstacleBreak(int x, int y) {
+            obstacles.removeIf(position -> position.getX() == x && position.getY() == y);
+        }
+
+        public Set<Position> obstaclePositions() {
+            return obstacles;
+        }
+    }
