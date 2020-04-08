@@ -5,7 +5,7 @@ public class MarsRoverImpl implements MarsRover{
 
     private Position position;
 
-    public MarsRover(int x,int y, Direction direction) {
+    public void MarsRover(int x,int y, Direction direction) {
         position = Position.of(x, y, direction);
     }
 
