@@ -30,5 +30,5 @@ class MarsRoverTest {
 	Assertions.assertThat(newPosition)
         is.EqualTo(Position.of(expectedX, expectedy, expectedDirection));
 
-
+.
 }
