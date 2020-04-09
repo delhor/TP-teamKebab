@@ -1,4 +1,4 @@
-package com.github.ledoyen.korekto.core.thirdparty.tp4a2020;
+/*package com.github.ledoyen.korekto.core.thirdparty.tp4a2020;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -32,3 +32,4 @@ class MarsRoverTest {
 
 
 }
+*/
