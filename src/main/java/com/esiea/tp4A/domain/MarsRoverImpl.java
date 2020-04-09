@@ -14,8 +14,8 @@ public class MarsRoverImpl implements MarsRover{
     public  MarsRover initialize(Position pos) {
         this.x = pos.getX();
         this.y = pos.getY();
-        this.direction = pos.getDir();
-        this.direction = pos.getDir();
+        this.direction = pos.getDirection();
+        this.direction = pos.getDirection();
         return this;
     }
     @Override
