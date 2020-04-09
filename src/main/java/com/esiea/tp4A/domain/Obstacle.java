@@ -34,12 +34,12 @@ public class Obstacle {
             return new Position.FixedPosition(p.getPositionX(),p.getpositionY(),Direction.NORTH);
         }
 
-        public boolean obstacleDetection(int x, int y) {
+        public boolean detectObstacle(int x, int y) {
                 return obstacles.stream()
                     .anyMatch(p -> p.getX() == x && p.getY() == y);
             }
 
-        public void obstacleBreak(int x, int y) {
+        public void killObstacle(int x, int y) {
             obstacles.removeIf(position -> position.getX() == x && position.getY() == y);
         }
 
