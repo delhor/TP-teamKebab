@@ -1,41 +1,50 @@
 package com.esiea.tp4A.domain;
 
 public class Point {
-    public int positionX;
-    public int positionY;
-    public final Obstacle obstacle;
+    private int positionX;
+    private int positionY;
+    private final Obstacle obstacle;
 
-    public Point(int positionX, int positionY, Mars mars){
+    public Point(int positionX, int positionY, Obstacle mars){
         this.positionX = positionX;
         this.positionY = positionY;
         this.obstacle = mars;
     }
 
     public void positionXForward(){
-        int positionTest = (positionX + 1) > obstacle.maxpositionX ? obstacle.minpositionX : positionX + 1;
-        if(!obstacle.checkIfObstacle(positionTest,positionY)) {
+        int positionTest = (positionX + 1) > obstacle.positionMaxX ? obstacle.positionMinX : positionX + 1;
+        if(!obstacle.obstacleDetection(positionTest,positionY)) {
             positionX = positionTest;
         }
     }
 
     public void positionXBackward(){
-        int positionTest = (positionX - 1) < obstacle.minpositionX ? obstacle.maxpositionX : positionX - 1;
-        if(!obstacle.checkIfObstacle(positionTest,positionY)) {
+        int positionTest = (positionX - 1) < obstacle.positionMinX ? obstacle.positionMaxX : positionX - 1;
+        if(!obstacle.obstacleDetection(positionTest,positionY)) {
             positionX = positionTest;
         }
     }
     public void positionYForward(){
-        int positionTest = (positionY + 1) > obstacle.maxpositionY ? obstacle.minpositionY : positionY + 1;
-        if(!obstacle.checkIfObstacle(positionX ,positionTest)) {
+        int positionTest = (positionY + 1) > obstacle.positionMaxY ? obstacle.positionMinY : positionY + 1;
+        if(!obstacle.obstacleDetection(positionX ,positionTest)) {
             positionY = positionTest;
         }
     }
     public void positionYBackward(){
-        int positionTest = (positionY - 1) < obstacle.minpositionY ? obstacle.maxpositionY : positionY - 1;
-        if(!obstacle.checkIfObstacle(positionX ,positionTest)) {
+        int positionTest = (positionY - 1) < obstacle.positionMinY ? obstacle.positionMaxY : positionY - 1;
+        if(!obstacle.obstacleDetection(positionX ,positionTest)) {
             positionY = positionTest;
         }
     }
+
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public int getpositionY() {
+        return positionY;
+    }
+
 
 
 
