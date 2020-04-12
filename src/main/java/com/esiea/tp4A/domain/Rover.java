@@ -15,7 +15,6 @@ public class Rover implements MarsRover{
     }
 
     public Rover(Position generatePosition, Mars mars) {
-
     }
 
     @Override
@@ -41,9 +40,7 @@ public class Rover implements MarsRover{
     public Position move(String commands){
         for (char c : commands.toCharArray()) {
             executeCommand(c);
-        }
-        return position;
-    }
+        }return position; }
 
     private void executeCommand(char command) {
         switch(command) {
@@ -54,21 +51,9 @@ public class Rover implements MarsRover{
             case 's': shoot(); break;
         }
     }
-
-    public Position getPosition() {
-        return position;
-    }
+    public Position getPosition() { return position;}
     public Mars getMars() { return mars; }
-    public void shoot(){
-        laser.shoot(position,position.getDirection());
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    public void shoot(){ laser.shoot(position,position.getDirection()); }
+    public int getId() { return id;}
+    public void setId(int id) { this.id = id;}
 }
