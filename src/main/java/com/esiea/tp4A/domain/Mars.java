@@ -11,17 +11,17 @@ public class Mars implements PlanetMap {
     public int number;
     public Mars(int numberOfObstacles, int mapSize) {
         mapImpl = new PlanetMapImpl(mapSize/2, -1*((mapSize/2) - 1), mapSize/2, -1*((mapSize/2) - 1));
-        this.generateObstacles(numberOfObstacles);
+        this.genObstacles(numberOfObstacles);
     }
-    public void generateObstacles(int number) {
+    public void genObstacles(int number) {
         if(number >= 0 ) {
             while (obstacles.size() != number) {
-                Position obstacle = uniqueObstacleGenerate();
+                Position obstacle = uniqueObstacleGen();
                 obstacles.add(obstacle);
             }
         }
     }
-    private Position uniqueObstacleGenerate(){
+    private Position uniqueObstacleGen(){
         FinalRandom shared = new FinalRandom();
         Point point;
         do {
