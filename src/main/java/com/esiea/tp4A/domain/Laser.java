@@ -1,52 +1,66 @@
 package com.esiea.tp4A.domain;
 
 public class Laser {
-    public final Obstacle obstacle;
-    public final int distMax;
+    private final Mars mars;
+    private int range;
 
-    public Laser(Obstacle obstacle, int distMax){
-        this.obstacle = obstacle;
-        this.distMax = distMax;
+    public Laser(Mars mars, int range) {
+        this.mars = mars;
+        this.range = range;
     }
 
-    public void shoot(Position pos, Direction dir){
-        switch(dir){
-            case NORTH:shootNorth(pos); break;
-            case EAST:shootEast(pos); break;
-            case SOUTH:shootSouth(pos); break;
-            case WEST:shootWest(pos); break;
+    //todo : détruire les rovers
+    public void shoot(PositionImpl pos, Direction dir){
+        switch (dir) {
+            case NORTH:
+                shootN(pos); break;
+            case SOUTH:
+                shootS(pos); break;
+            case EAST:
+                shootE(pos); break;
+            case WEST:
+                shootW(pos); break;
         }
     }
 
-    private void shootNorth(Position pos){
-        for(int count = pos.getY(); count < pos.getY()+ this.distMax; count++){
-            if(this.obstacle.detectObstacle(pos.getX(), count)){
-                this.obstacle.killObstacle(pos.getX(), count);
+    private void shootN(PositionImpl pos) {
+        Point p = new Point(pos.getX(),pos.getY(),mars);
+        for(int i = 0 ; i < this.range ; i++){
+            if(!p.positionYForward()){
+                this.mars.killObstacle(p.getPositionX(),p.getPositionYForward());
+                break;
+            }
+        }
+    }
+    private void shootS(PositionImpl pos) {
+        Point p = new Point(pos.getX(),pos.getY(),mars);
+        for(int i = 0 ; i < this.range ; i++){
+            if(!p.positionYBackward()){
+                this.mars.killObstacle(p.getPositionX(),p.getPositionYBackward());
+                break;
+            }
+        }
+    }
+    private void shootE(PositionImpl pos) {
+        Point p = new Point(pos.getX(),pos.getY(),mars);
+        for(int i = 0 ; i < this.range ; i++){
+            if(!p.positionXForward()){
+                this.mars.killObstacle(p.getPositionXForward(),p.getPositionY());
+                break;
+            }
+        }
+    }
+    private void shootW(PositionImpl pos) {
+        Point point = new Point(pos.getX(),pos.getY(),mars);
+        for(int i = 0 ; i < this.range ; i++){
+            if(!point.positionXBackward()){
+                this.mars.killObstacle(point.getPositionXBackward(),point.getPositionY());
+                break;
             }
         }
     }
 
-    private void shootEast(Position pos){
-        for(int count = pos.getY(); count > pos.getY()+ this.distMax; count++){
-            if(this.obstacle.detectObstacle(pos.getY(), count)){
-                this.obstacle.killObstacle(pos.getY(), count);
-            }
-        }
-    }
-
-    private void shootSouth(Position pos){
-        for(int count = pos.getX(); count < pos.getX()+ this.distMax; count--){
-            if(this.obstacle.detectObstacle(pos.getX(), count)){
-                this.obstacle.killObstacle(pos.getX(), count);
-            }
-        }
-    }
-
-    private void shootWest(Position pos){
-        for(int i = pos.getY(); i > pos.getY()+ this.distMax; i--){
-            if(this.obstacle.detectObstacle(pos.getY(), i)){
-                this.obstacle.killObstacle(pos.getY(), i);
-            }
-        }
+    public void setRange(int range) {
+        this.range = range;
     }
 }
