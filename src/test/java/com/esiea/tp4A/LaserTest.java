@@ -8,7 +8,7 @@ import static com.esiea.tp4A.domain.Direction.NORTH;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LaserTest {
-        public final Mars mars = new Mars(0, 600);
+        public final Mars mars = new Mars(20, 600);
         Laser laser = new Laser(mars, 0);
 
         @ParameterizedTest
