@@ -1,4 +1,7 @@
-package com.esiea.tp4A.domain;
+package com.esiea.tp4A;
+
+import com.esiea.tp4A.domain.PlanetMap;
+import com.esiea.tp4A.domain.Position;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,13 +24,14 @@ public class Mars implements PlanetMap {
             }
         }
     }
+
     private Position uniqueObstacleGen(){
         FinalRandom shared = new FinalRandom();
         Point point;
         do {
             point = new Point(shared.getRandomInt(mapImpl.getMaxPositionX(), mapImpl.getMinPositionX()),shared.getRandomInt(mapImpl.getMaxPositionY(), mapImpl.getMinPositionY()),this);
         } while(detectObstacle(point.getPositionX(), point.getPositionY()));
-        return new Position.FixedPosition(point.getPositionX(),point.getPositionY(),Direction.NORTH);
+        return new Position.FixedPosition(point.getPositionX(),point.getPositionY(), Direction.NORTH);
     }
     public boolean detectObstacle(int x, int y) {
         return Stream.concat(rovers.stream().map(Rover::getPosition),

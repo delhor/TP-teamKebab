@@ -1,4 +1,6 @@
-package com.esiea.tp4A.domain;
+package com.esiea.tp4A;
+
+import com.esiea.tp4A.domain.Rotation;
 
 public enum Direction implements Rotation {
     NORTH {

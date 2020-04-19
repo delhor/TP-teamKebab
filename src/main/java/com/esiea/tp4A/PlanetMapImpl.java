@@ -1,4 +1,4 @@
-package com.esiea.tp4A.domain;
+package com.esiea.tp4A;
 
 public class PlanetMapImpl {
     private final int positionMaxX;

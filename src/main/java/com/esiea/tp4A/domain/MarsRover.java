@@ -1,5 +1,7 @@
 package com.esiea.tp4A.domain;
 
+import com.esiea.tp4A.Direction;
+
 public interface MarsRover {
 
     default MarsRover initialize(Position position) {

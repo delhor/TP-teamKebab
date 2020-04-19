@@ -1,4 +1,4 @@
-package com.esiea.tp4A.domain;
+package com.esiea.tp4A;
 import java.util.Random;
 
 public class FinalRandom {

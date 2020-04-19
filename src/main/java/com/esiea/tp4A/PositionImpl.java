@@ -1,6 +1,8 @@
-package com.esiea.tp4A.domain;
+package com.esiea.tp4A;
 
-    public class PositionImpl implements Position {
+import com.esiea.tp4A.domain.Position;
+
+public class PositionImpl implements Position {
         private final Point point;
         private Direction direction;
 

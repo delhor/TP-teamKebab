@@ -1,7 +1,5 @@
 package com.esiea.tp4A;
 
-import com.esiea.tp4A.domain.Direction;
-import com.esiea.tp4A.domain.Mars;
 import com.esiea.tp4A.domain.Position;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

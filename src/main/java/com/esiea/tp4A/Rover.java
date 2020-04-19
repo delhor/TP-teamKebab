@@ -1,6 +1,10 @@
-package com.esiea.tp4A.domain;
+package com.esiea.tp4A;
 
-public class Rover implements MarsRover{
+import com.esiea.tp4A.domain.MarsRover;
+import com.esiea.tp4A.domain.PlanetMap;
+import com.esiea.tp4A.domain.Position;
+
+public class Rover implements MarsRover {
 
     private PositionImpl position;
     private Mars mars;
@@ -17,7 +21,7 @@ public class Rover implements MarsRover{
     public Rover(Position generatePosition, Mars mars) {
     }
 
-    @Override
+   @Override
     public MarsRover initialize(Position position) {
         Point point = new Point(position.getX(), position.getY(), mars);
         position = new PositionImpl(point, Direction.NORTH);

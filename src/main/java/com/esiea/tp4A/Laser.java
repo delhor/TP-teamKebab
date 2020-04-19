@@ -1,4 +1,4 @@
-package com.esiea.tp4A.domain;
+package com.esiea.tp4A;
 
 public class Laser {
     private final Mars mars;
@@ -9,7 +9,6 @@ public class Laser {
         this.range = range;
     }
 
-    //todo : détruire les rovers
     public void shoot(PositionImpl pos, Direction dir){
         switch (dir) {
             case NORTH:

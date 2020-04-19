@@ -4,7 +4,7 @@ import com.esiea.tp4A.domain.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static com.esiea.tp4A.domain.Direction.NORTH;
+import static com.esiea.tp4A.Direction.NORTH;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LaserTest {
